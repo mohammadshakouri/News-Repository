@@ -1,0 +1,99 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MainMaster.master.cs" Inherits="News.App.Pages.MainMaster" %>
+
+<!DOCTYPE html>
+
+<html dir="rtl" lang="fa">
+<head runat="server">
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+   <link href="../Content/bootstrap-5.2.0-dist/css/bootstrap.rtl.min.css" rel="stylesheet" />
+    <link href="../Content/Webfonts/style.css" rel="stylesheet" />
+    <link href="../Content/Css/StyleSheet.css" rel="stylesheet" /> 
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body runat="server">
+    <form id="form1" runat="server">
+        <div class="container-fluid ">
+            <div class="row align-items-center justify-content-between fixed-top" id="header">
+                <div class="col-auto d-flex ">
+                    <ul class="nav d-none d-lg-flex ps-4  ">
+                        <li class="nav-item">
+                            <a class="nav-link" href="Default.aspx"><i class="bi-house-fill" style="margin-left:5px; font-size:1.25rem;"></i>خانه</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Action.aspx?newsid=0"><i class="bi-plus-circle-fill" style="margin-left:5px; font-size:1.25rem;"></i>افزودن خبر</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Profile.aspx"><i class="bi-file-person-fill" style="margin-left:5px; font-size:1.25rem;"></i>حساب کاربری</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Users.aspx"><i class="bi-people-fill" style="margin-left:5px; font-size:1.25rem;"></i>کاربران</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="SignUpPage.aspx?loginstatus=success"><i class="bi-person-plus-fill" style="margin-left:5px; font-size:1.25rem;"></i>ثبت نام کاربر</a>
+                        </li>
+                        
+                    </ul>
+                    <ul class="nav d-lg-none ps-4">
+                        <li class="nav-item">
+                            <a class="btn btn-outline-info" data-bs-toggle="offcanvas" href="#offcanvasExample">منو </a>
+                           
+
+                        </li>
+
+                    </ul>
+                </div>
+
+                <div class="col-auto pe-5">
+                    <span id="useridentity" runat="server" class="alert-info"></span>
+                    <asp:Button ID="BtnSignOut" runat="server" CssClass="btn btn-outline-danger" Text="خروج" OnClick="BtnSignOut_Click" />
+                </div>
+
+            </div>
+            <br />
+            <br />
+          
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasExampleLabel">منوی موبایل</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div>
+                    <div class="list-group list-group-flush">
+                        
+                            <a class="list-group-item list-group-item-action rounded" href="Default.aspx">خانه</a>
+                        
+                        
+                            <a class="list-group-item list-group-item-action rounded" href="Action.aspx?newsid=0">افزودن خبر</a>
+                        
+                        
+                            <a class="list-group-item list-group-item-action rounded" href="Profile.aspx">حساب کاربری</a>
+                        
+                        
+                            <a class="list-group-item list-group-item-action rounded" href="Users.aspx">کاربران</a>
+                        
+                        
+                            <a class="list-group-item list-group-item-action rounded" href="SignUpPage.aspx?loginstatus=success">ثبت نام کاربر</a>
+                        
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+        </div>
+        
+        <div class="container-xxl">
+
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+    <script src="../Content/bootstrap-5.2.0-dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

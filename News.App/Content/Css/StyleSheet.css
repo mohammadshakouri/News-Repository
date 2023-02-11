@@ -1,0 +1,55 @@
+﻿#header {
+    background-color: #e3f2fd;
+    border-radius: 5px;
+    height: 60px;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.blur {
+    background-color: rgba(255,255,255, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+ul a:hover {
+    background-color: white;
+    border-radius: 5px;
+}
+
+.boxes:hover {
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
+    background-color: #e6ffff !important;
+}
+
+.btn-info {
+    border: none;
+    background-color: #c2e7ff;
+}
+
+    .btn-info:hover {
+        border: none;
+        background-color: #c2e7ff;
+        box-shadow: 0 1px 3px 0 rgb(60 64 67 / 30%), 0 4px 8px 3px rgb(60 64 67 / 15%);
+        box-shadow: 0 1px 3px 0 rgb(60 64 67 / 30%), 0 4px 8px 3px rgb(60 64 67 / 15%)
+    }
+
+    .btn-info:focus {
+        border: none;
+        background-color: #c2e7ff;
+        box-shadow: 0 1px 3px 0 rgb(60 64 67 / 30%), 0 4px 8px 3px rgb(60 64 67 / 15%);
+        box-shadow: 0 1px 3px 0 rgb(60 64 67 / 30%), 0 4px 8px 3px rgb(60 64 67 / 15%)
+    }
+
+    .btn-info:active {
+        border: none;
+        background-color: #c2e7ff;
+        box-shadow: 0 1px 3px 0 rgb(60 64 67 / 30%), 0 4px 8px 3px rgb(60 64 67 / 15%);
+        box-shadow: 0 1px 3px 0 rgb(60 64 67 / 30%), 0 4px 8px 3px rgb(60 64 67 / 15%)
+    }
+
+a.nav-link {
+    color: darkblue;
+}
+
