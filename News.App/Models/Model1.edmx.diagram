@@ -10,6 +10,8 @@
         <EntityTypeShape EntityType="NewsModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="NewsModel.Users" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
         <AssociationConnector Association="NewsModel.FK_News_NewsType1" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="NewsModel.Roles" Width="1.5" PointX="5.5" PointY="3.875" />
+        <AssociationConnector Association="NewsModel.FK_Users_Roles" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

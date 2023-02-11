@@ -35,6 +35,7 @@ namespace News.App.Pages
             newuser.Phone = Phone.Value;
             newuser.Username = Username.Value;
             newuser.Password = Password.Value.TOHash();
+            newuser.RoleID = byte.Parse("2");
             db.Users.Add(newuser);
             db.SaveChanges();
             if (Request.QueryString["loginstatus"] == "success")
