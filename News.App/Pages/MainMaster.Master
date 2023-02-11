@@ -24,7 +24,7 @@
                             <a class="nav-link" href="Default.aspx"><i class="bi-house-fill" style="margin-left:5px; font-size:1.25rem;"></i>خانه</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="Action.aspx?newsid=0"><i class="bi-plus-circle-fill" style="margin-left:5px; font-size:1.25rem;"></i>افزودن خبر</a>
+                            <a class="nav-link" href="Action.aspx?newsid=0"><i class="bi-plus-circle-fill" style="margin-left:5px; font-size:1.25rem;"></i>افزودن خبر ربرسیر</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="Profile.aspx"><i class="bi-file-person-fill" style="margin-left:5px; font-size:1.25rem;"></i>حساب کاربری</a>
