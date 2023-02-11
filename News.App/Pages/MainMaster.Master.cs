@@ -20,7 +20,8 @@ namespace News.App.Pages
         {
             if (HttpContext.Current.User.Identity.IsAuthenticated)
             {
-                useridentity.InnerHtml = HttpContext.Current.User.Identity.Name;
+             
+                useridentity.InnerHtml = $"<i class=\"bi-file-person-fill\" style=\"margin-left:5px; font-size:1.25rem; vertical-align: middle;\"></i>{ HttpContext.Current.User.Identity.Name}";
 
             }
             else

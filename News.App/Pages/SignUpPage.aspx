@@ -18,25 +18,14 @@
                 <div class="col-auto">
                     <ul class="nav d-none d-md-flex ps-4">
                         <li class="nav-item">
-                            <a class="nav-link" href="Default.aspx"><i class="bi-house-fill" style="margin-left:5px; font-size:1.25rem;"></i>خانه</a>
+                            <a class="nav-link" href="Default.aspx"><i class="bi-house-fill" style="margin-left:5px; font-size:1.25rem;"></i>لیست آخرین اخبار</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="Action.aspx?newsid=0"><i class="bi-plus-circle-fill" style="margin-left:5px; font-size:1.25rem;"></i>افزودن خبر</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="Profile.aspx"><i class="bi-file-person-fill" style="margin-left:5px; font-size:1.25rem;"></i>حساب کاربری</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="Users.aspx"><i class="bi-people-fill" style="margin-left:5px; font-size:1.25rem;"></i>کاربران</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="SignUpPage.aspx?loginstatus=success"><i class="bi-person-plus-fill" style="margin-left:5px; font-size:1.25rem;"></i>ثبت نام کاربر</a>
-                        </li>
+                        <% AdminMenuItemsCreator(); %>
                     </ul>
                 </div>
 
                 <div class="col-auto pe-5">
-                    <span id="useridentity" runat="server" class="alert-info"></span>
+                    <a href="Profile.aspx" id="useridentity" runat="server" class="alert-info"></a>
                     <asp:Button ID="BtnSignOut" runat="server" CssClass="btn btn-outline-danger" Text="خروج" OnClick="BtnSignOut_Click" ValidationGroup="signout" />
                 </div>
 
