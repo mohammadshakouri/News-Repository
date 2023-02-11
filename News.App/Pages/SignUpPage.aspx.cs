@@ -1,4 +1,5 @@
-﻿using System;
+﻿using News.App.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,7 +22,8 @@ namespace News.App.Pages
             }
             else
             {
-                useridentity.InnerHtml = HttpContext.Current.User.Identity.Name;
+                string role = GetUserRole();
+                useridentity.InnerHtml = $"<i class=\"bi-file-person-fill\" style=\"margin-left:5px; font-size:1.25rem; vertical-align: middle;\"></i>{HttpContext.Current.User.Identity.Name} ({role})";
                 header.Visible = true;
 
             }
@@ -71,7 +73,24 @@ namespace News.App.Pages
 
             }
         }
+        protected string GetUserRole()
+        {
+            string UserRole = "";
+            using (var db = new NewsDBEntities())
+            {
+                var user = db.Users.Where(u => u.FullName == HttpContext.Current.User.Identity.Name).FirstOrDefault();
+                var userroleFromDB = user.Roles.RoleName.ToString();
 
+                switch (userroleFromDB)
+                {
+                    case "Admin": UserRole = "مدیر کل سیستم"; break;
+                    case "Author": UserRole = "نویسنده خبر"; break;
+                    case "Editor": UserRole = "ویرایشگر"; break;
+                    case "Member": UserRole = "کاربر"; break;
+                }
+            }
+            return UserRole;
+        }
 
     }
 }
