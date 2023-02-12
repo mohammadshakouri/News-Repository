@@ -22,6 +22,7 @@ namespace News.App.Pages
             }
             else
             {
+                ForbidNonAdminUsers();
                 string role = GetUserRole();
                 useridentity.InnerHtml = $"<i class=\"bi-file-person-fill\" style=\"margin-left:5px; font-size:1.25rem; vertical-align: middle;\"></i>{HttpContext.Current.User.Identity.Name} ({role})";
                 header.Visible = true;
@@ -91,6 +92,22 @@ namespace News.App.Pages
             }
             return UserRole;
         }
+        protected void ForbidNonAdminUsers()
+        {
+            string UserRoleInDb = "";
+            using (var db = new NewsDBEntities())
+            {
+                var user = db.Users.Where(u => u.FullName == HttpContext.Current.User.Identity.Name).FirstOrDefault();
+                UserRoleInDb = user.Roles.RoleName.ToString();
 
+            }
+
+            if (UserRoleInDb != "Admin")
+            {
+                System.Web.Security.FormsAuthentication.SignOut();
+                System.Web.Security.FormsAuthentication.RedirectToLoginPage();
+            }
+
+        }
     }
 }
