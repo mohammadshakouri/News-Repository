@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Text;
+using News.App.Models;
 
 namespace News.App.Pages
 {
@@ -12,9 +13,29 @@ namespace News.App.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //GetUsers(); I put this method in the UI page
+            
+            ForbidNonAdminUsers();
+
+            //GetUserList(); I put this method in the UI page
         }
-        public void GetUsers()
+        protected void ForbidNonAdminUsers()
+        {
+            string UserRoleInDb = "";
+            using (var db = new NewsDBEntities())
+            {
+                var user = db.Users.Where(u => u.FullName == HttpContext.Current.User.Identity.Name).FirstOrDefault();
+                UserRoleInDb = user.Roles.RoleName.ToString();
+               
+            }
+            
+            if (UserRoleInDb != "Admin")
+            {
+                System.Web.Security.FormsAuthentication.SignOut();
+                System.Web.Security.FormsAuthentication.RedirectToLoginPage();
+            }
+            
+        }
+        public void GetUserList()
         {
             StringBuilder str = new StringBuilder();
             Models.NewsDBEntities db = new Models.NewsDBEntities();
@@ -35,5 +56,8 @@ namespace News.App.Pages
             //tbody.Controls.Add(new Literal { Text = str.ToString() });
             Response.Write(str);
         }
+
+
     }
+    
 }

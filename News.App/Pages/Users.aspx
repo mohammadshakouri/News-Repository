@@ -16,7 +16,7 @@
             </tr>
         </thead>
         <tbody id="tbody" runat="server">
-            <% GetUsers(); %>
+            <% GetUserList(); %>
         </tbody>
 
     </table>
