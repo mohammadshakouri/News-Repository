@@ -19,7 +19,7 @@ namespace News.App.Pages
                 if (Request.QueryString["newsid"] == "0")
                 {
                     Btndelete.Visible = false;
-                    BtnSave.Text = "افزودن خبر";                   
+                    BtnSave.Text = "افزودن خبر";
 
                 }
                 else
@@ -31,6 +31,11 @@ namespace News.App.Pages
                         TxtTitle.Value = news.NewsTitle;
                         Txtsummary.Value = news.NewsSummary;
                         NewsTypeSelect.Value = news.NewsTypeID.ToString();
+                        if (MainMaster.Role != "مدیرکل سیستم")
+                        {
+                            DisableEditMode();
+                        }
+
                     }
                 }
             }
@@ -38,6 +43,15 @@ namespace News.App.Pages
             {
                 Response.Redirect("default.aspx");
             }
+        }
+
+        private void DisableEditMode()
+        {
+            TxtTitle.Disabled = true;
+            Txtsummary.Disabled = true;
+            NewsTypeSelect.Disabled = true;
+            Btndelete.Visible = false;
+            BtnSave.Visible = false;
         }
 
         protected void BtnSave_Click(object sender, EventArgs e)
@@ -81,12 +95,12 @@ namespace News.App.Pages
 
 
         }
-        
+
         protected void FillCombo()
         {
             StringBuilder str = new StringBuilder();
             using (var db = new Models.NewsDBEntities())
-            {              
+            {
                 var newstypes = db.NewsType.ToList();
                 foreach (var item in newstypes)
                 {

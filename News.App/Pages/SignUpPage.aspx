@@ -13,25 +13,6 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="container-fluid">
-            <div class="row align-items-center justify-content-between fixed-top" id="header" runat="server">
-                <div class="col-auto">
-                    <ul class="nav d-none d-md-flex ps-4">
-                        <li class="nav-item">
-                            <a class="nav-link" href="Default.aspx"><i class="bi-house-fill" style="margin-left:5px; font-size:1.25rem;"></i>لیست آخرین اخبار</a>
-                        </li>
-                        <% AdminMenuItemsCreator(); %>
-                    </ul>
-                </div>
-
-                <div class="col-auto pe-5">
-                    <a href="Profile.aspx" id="useridentity" runat="server" class="alert-info"></a>
-                    <asp:Button ID="BtnSignOut" runat="server" CssClass="btn btn-outline-danger" Text="خروج" OnClick="BtnSignOut_Click" ValidationGroup="signout" />
-                </div>
-
-            </div>
-
-        </div>
         <br />
         <br />
         <div class="container-fluid">

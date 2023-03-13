@@ -11,8 +11,8 @@
           </Key>
           <Property Name="NewsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NewsTypeID" Type="int" Nullable="false" />
-          <Property Name="NewsTitle" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="NewsSummary" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NewsTitle" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="NewsSummary" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="NewsType">
           <Key>
@@ -130,8 +130,8 @@
           </Key>
           <Property Name="NewsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NewsTypeID" Type="Int32" Nullable="false" />
-          <Property Name="NewsTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="NewsSummary" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NewsTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NewsSummary" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="NewsType" Relationship="Self.FK_News_NewsType1" FromRole="News" ToRole="NewsType" />
         </EntityType>
         <EntityType Name="NewsType">

@@ -31,7 +31,7 @@
          <div class="col-lg-4 col-md-6">
             <label for="Txtsummary">محتوای خبر</label>
             <br />
-             <textarea class="form-control" id="Txtsummary" runat="server" style="height:150px;"></textarea>           
+             <textarea class="form-control" id="Txtsummary" runat="server" style="height:200px;"></textarea>           
         </div>  
      </div>
      <br />

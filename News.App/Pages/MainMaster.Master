@@ -54,20 +54,10 @@
                 <div>
                     <div class="list-group list-group-flush">
                         
-                            <a class="list-group-item list-group-item-action rounded" href="Default.aspx">خانه</a>
+                            <a class="list-group-item list-group-item-action rounded" href="Default.aspx">لیست آخرین اخبار</a>
+                         <% AdminMenuItemsCreatorMobile(); %>
                         
-                        
-                            <a class="list-group-item list-group-item-action rounded" href="Action.aspx?newsid=0">افزودن خبر</a>
-                        
-                        
-                            <a class="list-group-item list-group-item-action rounded" href="Profile.aspx">حساب کاربری</a>
-                        
-                        
-                            <a class="list-group-item list-group-item-action rounded" href="Users.aspx">کاربران</a>
-                        
-                        
-                            <a class="list-group-item list-group-item-action rounded" href="SignUpPage.aspx?loginstatus=success">ثبت نام کاربر</a>
-                        
+                           
                         
                     </div>
                 </div>

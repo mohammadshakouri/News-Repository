@@ -64,4 +64,9 @@ ul a:hover {
 a.nav-link {
     color: darkblue;
 }
-
+.form-control:disabled {
+    background-color: #f5faff;
+}
+.form-select:disabled {
+    background-color: #f5faff;
+}

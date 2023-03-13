@@ -11,6 +11,7 @@ namespace News.App.Pages
 {
     public partial class MainMaster : System.Web.UI.MasterPage
     {
+        public static string Role { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -21,8 +22,8 @@ namespace News.App.Pages
         {
             if (HttpContext.Current.User.Identity.IsAuthenticated)
             {
-                string role = GetUserRole();
-                useridentity.InnerHtml = $"<i class=\"bi-file-person-fill\" style=\"margin-left:5px; font-size:1.25rem; vertical-align: middle;\"></i>{ HttpContext.Current.User.Identity.Name} ({role})";
+                Role = GetUserRole();
+                useridentity.InnerHtml = $"<i class=\"bi-file-person-fill\" style=\"margin-left:5px; font-size:1.25rem; vertical-align: middle;\"></i>{ HttpContext.Current.User.Identity.Name} ({Role})";
 
             }
             else
@@ -52,14 +53,33 @@ namespace News.App.Pages
                         var str = new StringBuilder();
                         str.Append("<li class=\"nav-item\">\r\n <a class=\"nav-link\" href=\"Action.aspx?newsid=0\"><i class=\"bi-plus-circle-fill\" style=\"margin-left:5px; font-size:1.25rem;\"></i>افزودن خبر</a>\r\n </li>\r\n \r\n" +
                             "<li class=\"nav-item\">\r\n<a class=\"nav-link\" href=\"Users.aspx\"><i class=\"bi-people-fill\" style=\"margin-left:5px; font-size:1.25rem;\"></i>کاربران</a>\r\n</li>\r\n" +
-                            "<li class=\"nav-item\">\r\n<a class=\"nav-link\" href=\"SignUpPage.aspx?loginstatus=success\"><i class=\"bi-person-plus-fill\" style=\"margin-left:5px; font-size:1.25rem;\"></i>ثبت نام کاربر</a>\r\n</li>");
+                            "<li class=\"nav-item\">\r\n<a class=\"nav-link\" href=\"Default.aspx\"><i class=\"bi-person-plus-fill\" style=\"margin-left:5px; font-size:1.25rem;\"></i>دسته بندی</a>\r\n</li>");
                         Response.Write(str);
                     }
                 }
 
             }
         }
-        protected string GetUserRole()
+        protected void AdminMenuItemsCreatorMobile()
+        {
+            using (Models.NewsDBEntities db = new Models.NewsDBEntities())
+            {
+                if (db.Users.Where(u => u.FullName == HttpContext.Current.User.Identity.Name.ToString()).Any())
+                {
+                    var currentuser = db.Users.Where(u => u.FullName == HttpContext.Current.User.Identity.Name.ToString()).FirstOrDefault();
+                    if (currentuser.Roles.RoleName == "Admin")
+                    {
+                        var str = new StringBuilder();
+                        str.Append("<a class=\"list-group-item list-group-item-action rounded\" href=\"Action.aspx?newsid=0\">افزودن خبر</a>" +
+                            "<a class=\"list-group-item list-group-item-action rounded\" href=\"Users.aspx\">کاربران</a>" +
+                            "<a class=\"list-group-item list-group-item-action rounded\" href=\"Default.aspx\">دسته بندی</a>");
+                        Response.Write(str);
+                    }
+                }
+
+            }
+        }
+        public string GetUserRole()
         {
             string UserRole = "";
             using (var db =new NewsDBEntities())
@@ -69,9 +89,7 @@ namespace News.App.Pages
 
                 switch (userroleFromDB)
                 {
-                    case "Admin": UserRole = "مدیر کل سیستم"; break;
-                    case "Author": UserRole = "نویسنده خبر"; break;
-                    case "Editor": UserRole = "ویرایشگر"; break;
+                    case "Admin": UserRole = "مدیرکل سیستم"; break;
                     case "Member": UserRole = "کاربر"; break;
                 }
             }            
